@@ -20,7 +20,7 @@ public class TodoMvcApplication {
 
     @Bean
     public CommandLineRunner init(){
-        return args -> {
+        return args ->
             IntStream.range(0,3)
                     .boxed()
                     .map(integer -> Todo.builder()
@@ -29,9 +29,6 @@ public class TodoMvcApplication {
                             .title((integer + 1) + ". TODO  item")
                             .build())
                     .forEach(TodoDao::add);
-
-
-        };
     }
 
 }
