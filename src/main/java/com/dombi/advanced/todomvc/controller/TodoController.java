@@ -50,7 +50,18 @@ public class TodoController {
         return SUCCESS;
     }
 
+    // Update by id
+    @PutMapping("/todos/{id}")
+    public String updateById(@PathVariable String id, @RequestParam HashMap<String,String> map ){
+        TodoDao.update(id, map.get("todo-title"));
+        return SUCCESS;
+    }
 
+    // Find by id
+    @GetMapping("/todos/{id}")
+    public Todo findById(@PathVariable String id){
+        return TodoDao.find(id);
+    }
 
 
 }
